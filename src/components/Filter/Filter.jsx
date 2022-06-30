@@ -1,14 +1,13 @@
-import Label from '../ContactForm/Label';
 import { useDispatch, useSelector } from 'react-redux';
-import actions from '../../redux/contacts/contacts-actions';
-import { getFilter } from "redux/contacts/contacts-selectors";
+import { changeFilter, getFilter } from 'redux/contacts/contactsSlice';
+import Label from '../ContactForm/Label';
 
 const Filter = () => {
     const filterValue = useSelector(getFilter);
     const dispatch = useDispatch();
 
     const handleFilterChange = event => {
-        dispatch(actions.changeFilter(event.currentTarget.value));
+        dispatch(changeFilter(event.currentTarget.value));
     };
 
     return <Label labelTitle={'Find contacts by name'}>
